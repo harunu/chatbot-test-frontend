@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded hover:bg-gray-400;
+  }
+
+  /* Custom slider styling */
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 bg-primary-600 rounded-full cursor-pointer hover:bg-primary-700 transition-colors;
+  }
+
+  .slider::-moz-range-thumb {
+    @apply w-5 h-5 bg-primary-600 rounded-full cursor-pointer hover:bg-primary-700 transition-colors border-0;
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pulse animation for streaming cursor */
+  .animate-pulse-cursor {
+    animation: pulseCursor 1s ease-in-out infinite;
+  }
+
+  @keyframes pulseCursor {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+}
